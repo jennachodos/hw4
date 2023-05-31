@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by({"username"=> params["username"]})
+    @user = User.find_by({"email"=> params["email"]})
     #authenticate the user by username and password
     #if username and password match, login and redirect to places
     if @user 
