@@ -6,7 +6,7 @@
   <%#find user who created post %>
   <% user = User.find_by({ "id" => post["user_id"] }) %>
   <%# only show posts for users who are the current user %>
-  <% if user = @current_user %>
+  <% if user == @current_user %>
     <h3><%= post["title"] %></h3>   
     <h4><%= post["posted_on"] %></h4>
     <h6> <%= user["username"]%> </h6>
