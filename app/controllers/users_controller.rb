@@ -10,6 +10,6 @@ class UsersController < ApplicationController
     #save 1-way encrypted has of password using BCrypt
     @user["password"] = BCrypt::Password.create(params["user"]["password"])
     @user.save
-    redirect_to "/places"
+    redirect_to "/login"
   end
 end

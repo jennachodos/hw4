@@ -9,7 +9,7 @@
   <% if user == @current_user %>
     <h3><%= post["title"] %></h3>   
     <h4><%= post["posted_on"] %></h4>
-    <h6> <%= user["username"]%> </h6>
+    <h5> <%= user["username"]%> </h5>
     <!-- conditionally display attached file if post.uploaded_image.attached? -->
       <% if post.uploaded_image.attached? %>
         <!-- use url_for(post.uploaded_image) as attached file's url -->

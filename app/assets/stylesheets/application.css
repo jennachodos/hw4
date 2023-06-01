@@ -1,1 +1,15 @@
 /* Application styles */
+
+h5 {
+  color: gray;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+p {
+  margin: 20x;
+}
+
+body {
+  margin: 10x;
+}
