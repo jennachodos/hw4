@@ -1,32 +1,35 @@
 <h1><%= @place["name"] %></h1>
+
 <div class="row">
+
 <h2><u> My Posts </u></h2>
+
 <% for post in @posts %>
-  <div class="col-md-3 col-sm-6"> 
+   
   <%#find user who created post %>
   <% user = User.find_by({ "id" => post["user_id"] }) %>
   <%# only show posts for users who are the current user %>
   <% if user == @current_user %>
-    <h3><%= post["title"] %></h3>   
-    <h4><%= post["posted_on"] %></h4>
-    <h5> <%= user["username"]%> </h5>
-    <!-- conditionally display attached file if post.uploaded_image.attached? -->
-      <% if post.uploaded_image.attached? %>
-        <!-- use url_for(post.uploaded_image) as attached file's url -->
-        <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
-      <!-- otherwise display nothing -->
-      <% else %>
-      <% end %>
-    <p> <%= post["description"] %> </p>
-  <%else %>
+    <div class="col-md-4 col-sm-6">
+      <h3><%= post["title"] %></h3>   
+      <h4><%= post["posted_on"] %></h4>
+      <h5> <%= user["username"]%> </h5>
+      <!-- conditionally display attached file if post.uploaded_image.attached? -->
+        <% if post.uploaded_image.attached? %>
+          <!-- use url_for(post.uploaded_image) as attached file's url -->
+          <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+        <!-- otherwise display nothing -->
+        <% end %>
+      <p> <%= post["description"] %> </p>
+    </div>
   <% end %>
-  </div>
 <% end %>
 </div>
+
+
 <p>
   <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-primary">New Post</a>
 </p>
-
 <p>
   <a href="/places" class="btn btn-primary">Back to All Places</a>
 </p>

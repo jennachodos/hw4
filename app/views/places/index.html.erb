@@ -8,10 +8,12 @@
     </div>
   </div>
 <ul>
+
   <% for place in @places %>
     <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
   <% end %>
   <% else %>
   You must first <a href="/login">login</a> or <a href="/users/new">sign-up</a>. 
   <% end %>
+
 </ul>
